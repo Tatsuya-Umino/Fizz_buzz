@@ -1,3 +1,4 @@
+import scala.annotation.tailrec
 import scala.io.StdIn.readLine
 
 object fizzBuzz {
@@ -19,6 +20,9 @@ object fizzBuzz {
               println(fizzBuzz4(input.toInt)) // printlnはなるべくメソッドの外に追いやります
             }
         }
+
+      // Scalaではwhile構文は使わずに末尾再帰処理を書くことが多い
+      waitInput()
         
     }
 
@@ -76,6 +80,23 @@ object fizzBuzz {
       case (_, 0) => "Buzz"
       // それ以外
       case _ => "not fizz or buzz"
+    }
+  }
+
+  // あまり例が良くないですが、手続き型を避けるためwhileやforが書きたくなったら末尾再帰処理で書けないか検討します
+  @tailrec
+  def waitInput(): Unit = {
+    val input = readLine("数値を入力してください：")
+    input match {
+      case "fin" =>
+      case _ =>
+        val res = try {
+          fizzBuzz4(input.toInt)
+        } catch {
+          case e: Exception => "整数を入力してください"
+        }
+        println(res)
+        waitInput()
     }
   }
 }
