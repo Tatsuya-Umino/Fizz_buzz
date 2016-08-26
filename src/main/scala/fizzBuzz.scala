@@ -4,8 +4,9 @@ object fizzBuzz {
     def main(args: Array[String]): Unit = {
 
         while(true){
-            print("数値を入力してください : ")
-            var input = readLine()
+//            print("数値を入力してください : ")
+//            var input = readLine()
+            val input = readLine("数値を入力してください：") // 再代入しない値は定数（val）で宣言します
 
             if(input == "fin"){
                 return
