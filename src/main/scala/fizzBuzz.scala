@@ -15,8 +15,9 @@ object fizzBuzz {
             if (input == "" || !input.matches("^[0-9]*$")){
                 println("整数を入力してください")
             }else{
-              fizzBuzz(input.toInt)
-            } 
+//              fizzBuzz(input.toInt)
+              println(fizzBuzz4(input.toInt)) // printlnはなるべくメソッドの外に追いやります
+            }
         }
         
     }
